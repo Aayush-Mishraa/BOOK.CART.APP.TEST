@@ -2,7 +2,9 @@ import { Page } from "@playwright/test";
 import BaseFunctions from "../app.book.base/baseFunctions";
 
 export default class HeaderPage{
-    constructor(private page:Page, private base:BaseFunctions){
+   private base:BaseFunctions;
+    constructor(private page:Page,){
+      this.base = new BaseFunctions(page);
 
 
      }
@@ -18,6 +20,9 @@ export default class HeaderPage{
      async enterBookName(bookname:string){
        await this.page.getByPlaceholder(this.headerPageElements.searchInput)
        .type(bookname)
+       await this.base.waitAndClick("mat-option[role='option']");
+
+
 
      }
 

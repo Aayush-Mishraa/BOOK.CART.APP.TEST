@@ -4,8 +4,7 @@ import Assert from "../app.book.base/assert";
 
 export default class LoginPage{
     constructor(private page:Page, 
-        private base:BaseFunctions, 
-        private assert:Assert) { }
+        private base:BaseFunctions,) { }
     
     private Elements={
         userInput:"Username",

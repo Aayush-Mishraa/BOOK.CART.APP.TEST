@@ -1,4 +1,13 @@
 {
     "loginPageURL":"login",
-    "registyerPageURL":"register"
+    "registyerPageURL":"register",
+    "allCategories":[
+        "All Categories",
+        "Biography",
+        "Fiction",
+        "Mystery",
+        "Fantasy",
+        "Romance"
+    ]
 }
+
