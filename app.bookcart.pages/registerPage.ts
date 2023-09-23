@@ -24,18 +24,22 @@ export default class RegisterPage{
         femaleRadioBtn:"//span[contains(text(),'Female')]",
         regBtn:"button[color='primary']" 
     }
-
    
+     async navigateToRegisterPage(){
+        await this.base.goto("register")
+
+        
+     }
       // only for the positive senarios
     
-      async registerUser (firstname: string, Lastname: string, userName: string,password: any, confirmPassword: string, gender: any){
+      async registerUser (firstname: string, Lastname: string, userName: string,password: any, confirmPassword: string, gender: string){
         await this.page.fill(this.ELements.fName, firstname);
         await this.page.fill(this.ELements.lName, Lastname);
         //this must be unique always
 
         await this.page.fill(this.ELements.userName, userName);
         await this.page.fill(this.ELements.confirmPassword, confirmPassword);
-        if(gender.m)
+        if("m")
         {
             await this.page.click(this.ELements.maleRadioBtn);
             await expect(this.page.locator(this.ELements.maleRadioBtn)).toBeChecked();

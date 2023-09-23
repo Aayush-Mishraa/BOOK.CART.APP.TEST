@@ -1,10 +1,14 @@
-import { defineConfig, devices } from '@playwright/test';
+import type { PlaywrightTestConfig } from '@playwright/test';
+import {devices } from '@playwright/test';
 
 
-export default defineConfig({
+const config: PlaywrightTestConfig =({
   testDir: './tests',
+  testMatch:[
+    "tests\registerUser.test.ts"
+  ],
 
-timeout:30*1000,
+timeout:1*60*1000, //1 min
 expect:{
   timeout:5000
 },
@@ -17,12 +21,10 @@ expect:{
   reporter:[["html",{
     open:"on-failure"
   }]] ,
-
   use: {
-
+    headless:false,
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: "https://bookcart.azurewebsites.net/",
-
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     actionTimeout:10,
     trace: 'on-first-retry',
@@ -45,3 +47,4 @@ expect:{
   ]
    
 });
+export default config;

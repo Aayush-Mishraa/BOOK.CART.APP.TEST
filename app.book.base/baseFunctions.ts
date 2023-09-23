@@ -3,6 +3,12 @@ import { Page } from "@playwright/test";
 export default class BaseFunctions{
 
     constructor(private page:Page){
+    }
+
+    async goto(url :string){
+        await this.page.goto(url,{
+            waitUntil:"load"
+        });
 
     }
 
@@ -21,7 +27,7 @@ export default class BaseFunctions{
             this.page.waitForNavigation(),
             this.page.click(link)
 
-        ])
+        ]);
 
     }
 
